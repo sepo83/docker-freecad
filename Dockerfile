@@ -42,7 +42,7 @@ RUN \
   echo "**** install freecad from appimage ****" && \
   if [ -z ${FREECAD_URL+x} ]; then \
     FREECAD_URL=$(curl -sX GET "https://api.github.com/repos/FreeCAD/FreeCAD/releases/latest" | \
-	jq -r '.assets[].browser_download_url' | grep Linux-x86_64.AppImage$); \
+	jq -r '.assets[].browser_download_url' | grep Linux-x86_64.*.AppImage); \
   fi && \
   cd /tmp && \
   curl -o \
